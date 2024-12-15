@@ -5,11 +5,11 @@ import time
 
 
 # Enter how many times to swap => ETH -> USDC -> ETH = 1 time
-TIMES = 10
+TIMES = 9  # here was 10 by default
 
 # Delay between swaps in seconds
-sleep_time_min = 2
-sleep_time_max = 3
+sleep_time_min = 3
+sleep_time_max = 4
 
 with open("privatekeys.txt", "r") as f:
     private_keys = [line.strip() for line in f.readlines()]
@@ -17,7 +17,7 @@ with open("privatekeys.txt", "r") as f:
 nova_rpc = 'https://nova.arbitrum.io/rpc'
 w3 = Web3(Web3.HTTPProvider(nova_rpc))
 nova_scan = 'https://nova.arbiscan.io/tx'
-chain_id = 42170
+chain_id = 42170  # 42170 looks lioke its for Arb Nova
 
 arbswap_router_address = Web3.to_checksum_address('0xEe01c0CD76354C383B8c7B4e65EA88D00B06f36f')
 router_abi = json.load(open('abi.json', 'r'))
